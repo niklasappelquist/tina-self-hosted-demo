@@ -11,7 +11,6 @@ const config = defineConfig({
   admin: {
     auth: {
       useLocalAuth: process.env.TINA_PUBLIC_IS_LOCAL === "true",
-
       // Uncomment this to use custom auth
       // customAuth: true,
       // authenticate: async () => {
