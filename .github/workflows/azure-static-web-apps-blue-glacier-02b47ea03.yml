@@ -38,6 +38,7 @@ jobs:
           GITHUB_REPO: ${{ secrets.REPO }}
           NEXT_PUBLIC_TINA_TOKEN: ${{ secrets.PUBLIC_TINA_TOKEN }}
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.PUBLIC_TINA_CLIENT_ID }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI}}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
