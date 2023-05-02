@@ -31,6 +31,13 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: ".next" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          GITHUB_BRANCH: ${{ secrets.BRANCH }}
+          GITHUB_OWNER: ${{ secrets.OWNER }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_REPO: ${{ secrets.REPO }}
+          NEXT_PUBLIC_TINA_TOKEN: ${{ secrets.PUBLIC_TINA_TOKEN }}
+          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.PUBLIC_TINA_CLIENT_ID }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
