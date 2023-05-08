@@ -22,4 +22,5 @@ module.exports = {
   },
   staticPageGenerationTimeout: 100,
   output: "standalone",
+  crossOrigin: "anonymous",
 };

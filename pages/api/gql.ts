@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { isAuthorized, isUserAuthorized } from "@tinacms/auth";
+import { isUserAuthorized } from "@tinacms/auth";
 import { databaseRequest } from "../../lib/databaseConnection";
 
 const nextApiHandler: NextApiHandler = async (req, res) => {
@@ -16,15 +16,12 @@ const nextApiHandler: NextApiHandler = async (req, res) => {
     process.env.TINA_PUBLIC_IS_LOCAL === "true" ||
     tinaCloudUser?.verified ||
     false;
-  // const user = await isAuthorized(req);
 
   if (isAuthorized) {
-    console.log("AUTHORIZED");
     const { query, variables } = req.body;
     const result = await databaseRequest({ query, variables });
     return res.json(result);
   } else {
-    console.log("UNAUTHORIZED");
     return res.status(401).json({
       error: "Unauthorized",
       token: req.headers,
