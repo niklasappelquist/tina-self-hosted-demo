@@ -22,12 +22,10 @@ const nextApiHandler: NextApiHandler = async (req, res) => {
     const result = await databaseRequest({ query, variables });
     return res.json(result);
   } else {
-    return res
-      .status(401)
-      .json({
-        error: "Unauthorized",
-        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-      });
+    return res.status(401).json({
+      error: "Unauthorized",
+      token: req.headers.authorization,
+    });
   }
 };
 
