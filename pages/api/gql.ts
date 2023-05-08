@@ -24,7 +24,10 @@ const nextApiHandler: NextApiHandler = async (req, res) => {
   } else {
     return res
       .status(401)
-      .json({ error: "Unauthorized", tinaCloudUser: tinaCloudUser });
+      .json({
+        error: "Unauthorized",
+        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+      });
   }
 };
 
