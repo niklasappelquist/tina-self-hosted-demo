@@ -1,0 +1,6 @@
+{
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "https://identity.tinajs.io",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+  }
+}
