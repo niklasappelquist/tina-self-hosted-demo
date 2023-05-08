@@ -24,7 +24,7 @@ const nextApiHandler: NextApiHandler = async (req, res) => {
   } else {
     return res.status(401).json({
       error: "Unauthorized",
-      token: req.headers.authorization,
+      token: "req.headers.authorization",
     });
   }
 };
