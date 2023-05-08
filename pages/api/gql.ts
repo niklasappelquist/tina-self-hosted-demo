@@ -22,7 +22,9 @@ const nextApiHandler: NextApiHandler = async (req, res) => {
     const result = await databaseRequest({ query, variables });
     return res.json(result);
   } else {
-    return res.status(401).json({ error: "Unauthorized" });
+    return res
+      .status(401)
+      .json({ error: "Unauthorized", tinaCloudUser: tinaCloudUser });
   }
 };
 
